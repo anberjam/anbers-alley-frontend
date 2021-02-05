@@ -1,9 +1,11 @@
 import React, {useState} from "react"
 import ProductCategory from "./ProductCategory"
-import ProductPage from "./ProductPage.js"
+import ProductSubcategory from "./ProductSubcategory"
+
 
 function ProductContainer() {
     const [products, setProducts] = useState([]) 
+    const [skinCategory, setSkinCategory] = useState("all")
 
     
     useState(()=>{
@@ -13,19 +15,21 @@ function ProductContainer() {
     }
     ,[])
 
-    const combo = products.filter((p)=> p.skin_type === "combination")
-   
+    const filteredProducts = products.filter((p)=> p.skin_type === skinCategory)
 
-    const dry = products.filter((p)=> p.skin_type === "dry")
+
 
     
- 
+
 
     return (
         <div className="all products">
             
-            <ProductCategory products = {products} dry = {dry} combo = {combo}/>
+            <ProductCategory setProducts={setProducts} skinCategory={skinCategory} setSkinCategory={setSkinCategory} />
+            {skinCategory === "all" ? <ProductSubcategory products={products}/> : <ProductSubcategory products = {filteredProducts}/>}
 
+
+            
         </div>
 
     )

@@ -10,12 +10,13 @@ function NavBar ({user, setUser, setLoggedIn}) {
     }
 
 return (
-    <div className = "navbar"> NavBar
+    <div className = "navbar">
        
        <div>
            {user? (
                <>
-            <Link to="/products">Products</Link> 
+            <Link to="/products">Products</Link> &nbsp;
+            <Link to="/my-reviews">My Reviews</Link>&nbsp;
             <button onClick={handleLogout}>Logout</button>
             </> ) : (
                 <>

@@ -37,22 +37,24 @@ div.item {
 
 }
 
-img {
-  width: 200px;
+img.main {
+  width: 300px;
+  padding: 5px;
 }
 
 div.scroll {
   background-color: antiquewhite;
   overflow: auto;
+  white-space: nowrap;
 }
 
-div.scrollItem {
+a {
   display: inline-block;
   text-align: center;
   padding: 7px;
 }
 
-div.scrollItem:hover {
+a:hover {
   background-color: aquamarine;
 }
 
