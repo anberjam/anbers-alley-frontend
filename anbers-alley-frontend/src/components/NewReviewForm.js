@@ -1,7 +1,7 @@
 import React, {useState} from "react"
 
-function NewReviewForm ({handleAddReview, params}) {
-    const [formData, setFormData] = useState({user_id:1, product_id: parseInt(params.id), comment: "", rating: 0})
+function NewReviewForm ({user, handleAddReview, params}) {
+    const [formData, setFormData] = useState({user_id:1, product_id: parseInt(params.id), comment: "", rating: 1, name: user})
 
     function handleChange (event) {
         setFormData({...formData, [event.target.name]: event.target.value})
@@ -14,7 +14,9 @@ function NewReviewForm ({handleAddReview, params}) {
             user_id: 1,
             product_id: formData.product_id,
             comment: formData.comment,
-            rating: formData.rating
+            rating: parseInt(formData.rating),
+            name: user
+
         }
 
         console.log(newReview)
@@ -35,7 +37,7 @@ function NewReviewForm ({handleAddReview, params}) {
     return (
         
         <section>
-            <h2>New Review Form</h2>
+            <h2>Tried this product out already? Share your thoughts here:</h2>
 
             <form onSubmit={handleSubmit} className="form" autoComplete="off">
                 <label htmlFor="comment">Comment</label>
@@ -47,15 +49,16 @@ function NewReviewForm ({handleAddReview, params}) {
                 />
 
                 <label htmlFor="rating">Rating</label>
-                <select>
-                    <option value="1"> 1</option>
-                    <option value ="2"> 2</option>
-                    <option value ="3"> 3</option>
-                    <option value ="4"> 4</option>
+                <select name="rating" id="rating" value={formData.rating} onChange={handleChange}>
+                    <option value="1"> ☆</option>
+                    <option value ="2">☆☆</option>
+                    <option value ="3">☆☆☆</option>
+                    <option value ="4">☆☆☆☆</option>
+                    <option value ="5">☆☆☆☆☆</option>
                 </select>
                 
 
-                <button type="submit">Add Comment</button>
+                <button type="submit">Submit Review</button>
 
             </form>
         </section>

@@ -1,9 +1,14 @@
 import React from "react"
 
 function ReviewsItem ({review}) {
+
+
     
     return (
-        <h1>{review.comment}</h1>
+        <div className="individualReview">
+        <h1>{review.name} says: "{review.comment}"</h1>
+        <p>Rating: {review.rating} / 5 </p>
+        </div>
     )
 }
 

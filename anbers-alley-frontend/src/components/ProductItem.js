@@ -6,9 +6,9 @@ function ProductItem ({p}) {
     
     return (
 
-        
+       
         <a href="productItem">
-            <p>
+            <p className="each">
                 <Link to={`/products/details/${p.id}`}>
              {p.name} <br></br>
             <img className = "main" src={p.picture} alt={p.name}></img><br></br>
@@ -16,6 +16,7 @@ function ProductItem ({p}) {
              </p>
 
              </a>
+            
              
             
              

@@ -13,17 +13,19 @@ return (
     <div className = "navbar">
        
        <div>
+           <p className = "welcome">Welcome, {user}!   </p>
            {user? (
                <>
-            <Link to="/products">Products</Link> &nbsp;
-            <Link to="/my-reviews">My Reviews</Link>&nbsp;
-            <button onClick={handleLogout}>Logout</button>
+           <button className = "nav"> <Link to="/products" className = "nav">See Products</Link></button> &nbsp;
+            <button className = "nav"><Link to="/my-reviews" className = "nav">My Reviews</Link></button>&nbsp;
+            <button onClick={handleLogout} className="logout">Logout</button>
             </> ) : (
                 <>
                 <Link to="/">Login</Link>
                 </>
             )  
          } 
+         <br></br><br></br><br></br>
        </div>
 
      </div>

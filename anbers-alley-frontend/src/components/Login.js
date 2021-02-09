@@ -10,10 +10,16 @@ function Login ({setLoggedIn, setUser}) {
     }
 
 return (
-    <div> 
+
+    <div className = "login"> 
+
+    <div className="content">
+        <br></br>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQv4Jucqnwp4KC01h8HezECLYkdafUWT7k_xA&usqp=CAU" alt="welcome" />
         <h1>Please Enter Your Name</h1>
         <input type="text" onChange = {e => setUser(e.target.value)} autoComplete="off"></input>&nbsp;
-        <button onClick={handleLogin}>Login</button>
+        <button className="login" onClick={handleLogin}>Login</button>
+        </div>
      </div>
 )
 }

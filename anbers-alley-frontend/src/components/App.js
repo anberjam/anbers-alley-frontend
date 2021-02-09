@@ -15,25 +15,39 @@ function App () {
     const [user, setUser] = useState(" ")
     const [reviews, setReviews] = useState([])
 
+
     useEffect(()=> {
         fetch("http://localhost:3000/reviews")
         .then(r=>r.json())
-        .then(revData => setReviews(revData))
+        .then(revData => {setReviews(revData)
+
+        }
+        
+        )
     }
-    ,  [])
+    , [])
+
 
 
     function handleAddReview (newReview) {
         setReviews([...reviews, newReview])
     }
 
-console.log(reviews)
+  
+    
+ 
+    function deleteReview (deletedObj) {
+        const deleteIt = reviews.filter((review)=> review.id !== deletedObj.id)
+        setReviews(deleteIt)
+    }
+
+
 
     
     return (
         <div className="App">
             <Header />
-                {loggedIn ? <h3>Welcome {user}!</h3> : null}
+                {/* {loggedIn ? <h3>Welcome {user}!</h3> : null} */}
 
             <Route path="/">
                 {loggedIn ? <NavBar setLoggedIn={setLoggedIn} user={user} setUser= {setUser}/> :
@@ -42,7 +56,7 @@ console.log(reviews)
                 
             <Switch>
                 <Route path="/products/details/:id">
-                    {loggedIn? <ProductPage reviews={reviews} setReviews = {setReviews} handleAddReview={handleAddReview}/> : <Redirect to = "/" /> }
+                    {loggedIn? <ProductPage user={user} reviews={reviews} setReviews = {setReviews} handleAddReview={handleAddReview}/> : <Redirect to = "/" /> }
                 </Route>
 
                 <Route path="/products">
@@ -50,7 +64,7 @@ console.log(reviews)
                 </Route>
 
                 <Route path="/my-reviews">
-                    {loggedIn ? <MyReviewsPage /> : <Redirect to = "/products" /> }
+                    {loggedIn ? <MyReviewsPage reviews={reviews} deleteReview={deleteReview}  user={user}/> : <Redirect to = "/products" /> }
                 </Route>
 
 

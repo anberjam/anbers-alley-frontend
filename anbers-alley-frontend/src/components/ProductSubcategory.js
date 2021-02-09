@@ -20,7 +20,7 @@ function ProductSubcategory ({products}) {
       
         <div className= "category">
             <div className="cleanse">
-                <h2>CLEANSE</h2>
+                <h2> ≋C≋L≋E≋A≋N≋S≋E≋ </h2>
                 <div className="scroll">
 
                     {renderCleanse}
@@ -29,7 +29,7 @@ function ProductSubcategory ({products}) {
             </div>
 
             <div className="moisturize">
-                <h2>MOISTURIZE</h2>
+                <h2>(っ◔◡◔)っ ♥ MOISTURIZE ♥</h2>
                 <div className="scroll">
                     <div className="scrollItem">
                     {renderMoisturize}
@@ -38,7 +38,7 @@ function ProductSubcategory ({products}) {
             </div>
 
             <div className="treat">
-                <h2>TREAT</h2>
+                <h2>✷【ＴＲＥＡＴ】✷</h2>
                 <div className="scroll">
                     <div className="scrollItem">
                     {renderTreat}
@@ -47,7 +47,7 @@ function ProductSubcategory ({products}) {
             </div>
 
             <div className="mask">
-                <h2>MASK/SUPPLEMENT</h2>
+                <h2>🎀 MASK/SUPPLEMENT 🎀</h2>
                 <div className="scroll">
                     <div className="scrollItem">
                     {renderMask}

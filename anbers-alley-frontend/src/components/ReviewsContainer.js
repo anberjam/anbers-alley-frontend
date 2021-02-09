@@ -2,15 +2,17 @@ import React from "react"
 import ReviewsItem from "./ReviewsItem"
 
 
-function ReviewsContainer ({reviews}) {
+function ReviewsContainer ({reviews, params}) {
 
 
-    const renderEachReview = reviews.map((review)=> <ReviewsItem review = {review}/>)
+    const reviewForProduct = reviews.filter((review)=> review.product_id === parseInt(params.id))
+
+    const renderEachReview = reviewForProduct.map((review)=> <ReviewsItem key={review.id} review = {review}/>)
 
 
     return (
         <div>
-        <h3>Reviews Container</h3>
+        <h2>Check Out What Others Had To Say:</h2>
    
         {renderEachReview}
         </div>

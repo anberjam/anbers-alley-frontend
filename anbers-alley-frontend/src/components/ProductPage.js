@@ -4,10 +4,10 @@ import ReviewsContainer from "./ReviewsContainer"
 import NewReviewForm from "./NewReviewForm"
 
 
-function ProductPage ({reviews, setReviews, handleAddReview}) {
+function ProductPage ({user, reviews, setReviews, handleAddReview}) {
     const [p, setP] = useState(null)
     const [isLoaded, setIsLoaded] = useState(false);
-    const [reviewsForItem, setReviewsForItem] = useState([])
+
 
     const params = useParams();
     
@@ -24,27 +24,25 @@ function ProductPage ({reviews, setReviews, handleAddReview}) {
     },[params.id])
     
 
-    // setReviewsForItem(reviews.filter((review)=> review.product_id === params.id))
-
-    // console.log(reviewsForItem)
-
- 
-
-
- 
     
     if (!isLoaded) return <h2>Loading...</h2>;
 
     return (
         <div>
+            <br></br>
+            <img className= "page" src={p.picture} alt = {p.name}></img>
             <h1>{p.name}</h1>
-            <h4>{p.brand}</h4>
+            <h4> {p.brand}</h4>
             <p>price: $ {p.price}</p>
+            <br></br>
             <p>{p.description}</p>
-            <img src={p.picture} alt = {p.name}></img>
+            <br></br>
             <p>{p.how_to_use}</p>
-        <NewReviewForm handleAddReview={handleAddReview} params={params}/>
-        <ReviewsContainer reviews={reviews}/>
+                <br></br><br></br><br></br><br></br><br></br><br></br>
+            <div className= "reviews">
+        <NewReviewForm handleAddReview={handleAddReview} user={user} params={params}/>
+        <ReviewsContainer reviews={reviews} params = {params}/>
+        </div>
         </div>
         
     )
